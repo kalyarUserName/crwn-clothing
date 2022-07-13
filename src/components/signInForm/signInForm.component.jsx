@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import FormInput from "../formInput/formInput.component";
-import "./signInForm.styles.scss";
+import Button from "../button/button.component";
+import { UserContext } from "../../contexts/user.context";
 
 import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
-import Button from "../button/button.component";
+
+import "./signInForm.styles.scss";
 
 const defaultFormFields = {
   email: "",
@@ -19,28 +21,21 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const resetFormField = () => {
     setFormFields(defaultFormFields);
-  };
-
-  const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormFields({ ...formFields, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log("sign-in response", response);
+      setCurrentUser(user);
+
       resetFormField();
     } catch (error) {
       switch (error.code) {
@@ -56,7 +51,16 @@ const SignInForm = () => {
     }
   };
 
-  console.log(formFields);
+  const signInWithGoogle = async () => {
+    const { user } = await signInWithGooglePopup();
+    await createUserDocumentFromAuth(user);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
+
   return (
     <div className="sign-in-container">
       <h2>Already have an account</h2>
