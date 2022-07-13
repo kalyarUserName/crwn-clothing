@@ -7,7 +7,7 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import "./navigation.styles.scss";
 import CartIcon from "../../components/cartIcon/cartIcon.component";
-import CartDropdown from "../../components/cartDropdown/cartDropdown";
+import CartDropdownComponent from "../../components/cartDropdown/cartDropdown.component";
 import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
@@ -35,7 +35,7 @@ const Navigation = () => {
           )}
           <CartIcon />
         </div>
-        {isCartOpen && <CartDropdown />}
+        {isCartOpen && <CartDropdownComponent />}
       </div>
       <Outlet />
     </Fragment>
