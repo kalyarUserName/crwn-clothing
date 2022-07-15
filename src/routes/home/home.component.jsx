@@ -1,6 +1,6 @@
 import Directory from "../../components/directory/directory.component";
 
-const Home = (props) => {
+const Home = () => {
   const categories = [
     {
       id: 1,
@@ -28,6 +28,8 @@ const Home = (props) => {
       imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     },
   ];
+  // const {categoriesMap} = useContext(CategoriesContext);
+
   return (
     <div>
       <Directory categories={categories} />

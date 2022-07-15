@@ -8,6 +8,7 @@ import {
 
 const DirectoryItem = ({ category }) => {
   const { title, imageUrl } = category;
+
   return (
     <DirectoryItemContainer>
       <BackgroundImage imageUrl={imageUrl} />
