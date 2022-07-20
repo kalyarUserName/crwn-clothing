@@ -11,6 +11,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../store/cart/cart.selector";
+import PaymentForm from "../../components/paymentForm/paymentForm.component";
 
 const headerBlocks = ["Product", "Description", "Quantity", "Price", "Remove"];
 
@@ -49,6 +50,7 @@ const Checkout = () => {
       <Total>
         <h2>Total: ${cartTotal}</h2>
       </Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };
