@@ -11,13 +11,13 @@ import { rootSaga } from "./rootSaga";
 const sagaMiddleware = createSagaMiddleware();
 
 const middleWares = [
-  process.env.NODE_ENV === "development" && logger && sagaMiddleware,
+  process.env.NODE_ENV === "production" && logger && sagaMiddleware,
 ].filter(Boolean);
 
 const composeEnhancer =
-  // (process.env.NODE_ENV !== "production" &&
-  //   window &&
-  //   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  (process.env.NODE_ENV !== "production" &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
