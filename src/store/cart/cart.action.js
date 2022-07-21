@@ -5,6 +5,7 @@ export const setIsCartOpen = (boolean) =>
   createAction(CART_ACTION_TYPE.SET_IS_CART_OPEN, boolean);
 
 const addCartItem = (cartItems, productToAdd) => {
+  console.log("cartItems", cartItems, productToAdd);
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );

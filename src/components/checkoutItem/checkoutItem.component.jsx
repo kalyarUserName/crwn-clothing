@@ -15,13 +15,15 @@ import {
 } from "../../store/cart/cart.action";
 import { useDispatch } from "react-redux";
 
-const CheckoutItem = ({ cartItem }) => {
+const CheckoutItem = ({ cartItem, cartItems }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   const dispatch = useDispatch();
-  const clearItemHandler = () => dispatch(clearItemFromCart(cartItem));
-  const addItemHandler = () => dispatch(addItemToCart(cartItem));
-  const removeItemHandler = () => dispatch(removeItemFromCart(cartItem));
+  const clearItemHandler = () =>
+    dispatch(clearItemFromCart(cartItems, cartItem));
+  const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const removeItemHandler = () =>
+    dispatch(removeItemFromCart(cartItems, cartItem));
 
   return (
     <CheckoutItemContainer>

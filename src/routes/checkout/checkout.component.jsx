@@ -17,27 +17,11 @@ const headerBlocks = ["Product", "Description", "Quantity", "Price", "Remove"];
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
-
   const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
       <CheckoutHeader>
-        {/*<HeaderBlock>*/}
-        {/*  <span>Product</span>*/}
-        {/*</HeaderBlock>*/}
-        {/*<HeaderBlock>*/}
-        {/*  <span>Description</span>*/}
-        {/*</HeaderBlock>*/}
-        {/*<HeaderBlock>*/}
-        {/*  <span>Quantity</span>*/}
-        {/*</HeaderBlock>*/}
-        {/*<HeaderBlock>*/}
-        {/*  <span>Price</span>*/}
-        {/*</HeaderBlock>*/}
-        {/*<HeaderBlock>*/}
-        {/*  <span>Remove</span>*/}
-        {/*</HeaderBlock>*/}
         {headerBlocks.map((headerBlock, index) => (
           <HeaderBlock key={index}>
             <span> {headerBlock}</span>{" "}
@@ -45,7 +29,11 @@ const Checkout = () => {
         ))}
       </CheckoutHeader>
       {cartItems.map((cartItem) => (
-        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+        <CheckoutItem
+          key={cartItem.id}
+          cartItem={cartItem}
+          cartItems={cartItems}
+        />
       ))}
       <Total>
         <h2>Total: ${cartTotal}</h2>
