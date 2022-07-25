@@ -13,17 +13,19 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkUserSession());
-  }, []);
+  }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigation />}>
-        <Route index element={<Home />} />
-        <Route path="auth" element={<Authentication />} />
-        <Route path="shop/*" element={<Shop />} />
-        <Route path="checkout" element={<Checkout />} />
-      </Route>
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="auth" element={<Authentication />} />
+          <Route path="shop/*" element={<Shop />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 

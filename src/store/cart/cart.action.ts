@@ -72,7 +72,7 @@ export const setCartItems = withMatcher(
 
 export const addItemToCart = (
   cartItems: CartItem[],
-  productToAdd: CartItem
+  productToAdd: CategoryItem
 ) => {
   const newCartItems = addCartItem(cartItems, productToAdd);
   return setCartItems(newCartItems);
@@ -80,7 +80,7 @@ export const addItemToCart = (
 
 export const removeItemFromCart = (
   cartItems: CartItem[],
-  productToAdd: CartItem
+  productToAdd: CategoryItem
 ) => {
   const newCartItems = removeCartItem(cartItems, productToAdd);
   return setCartItems(newCartItems);
@@ -88,7 +88,7 @@ export const removeItemFromCart = (
 
 export const clearItemFromCart = (
   cartItems: CartItem[],
-  productToClear: CartItem
+  productToClear: CategoryItem
 ) => {
   const newCartItems = clearCartItem(cartItems, productToClear);
   return createAction(CART_ACTION_TYPE.SET_CART_ITEMS, newCartItems);

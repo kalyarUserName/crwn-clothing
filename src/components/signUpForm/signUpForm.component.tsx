@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 
 import FormInput from "../formInput/formInput.component";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPES_CLASSES } from "../button/button.component";
 
 import { SignUpContainer } from "./signUpForm.styles";
 import { signUpStart } from "../../store/user/user.action";
@@ -23,12 +24,12 @@ const SignUpForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       alert("passwords do not match ");
@@ -42,17 +43,15 @@ const SignUpForm = () => {
       // await createUserDocumentFromAuth(user, { displayName });
 
       dispatch(signUpStart(email, password, displayName));
-      console.log("FORM says", { email, password, displayName });
 
       resetFormField();
     } catch (error) {
-      switch (error.code) {
-        case "auth/email-already-in-use":
-          alert("Cannot create user, email already in use");
-          break;
-        default:
-          console.log("user created encountered an error", error);
+      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS)
+        alert("Cannot create user, email already in use");
+      else {
+        console.log("user created encountered an error", error);
       }
+      // console.log("user sign up failed", error);
     }
   };
 
@@ -93,7 +92,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button type="submit" buttonType="inverted">
+        <Button type="submit" buttonType={BUTTON_TYPES_CLASSES.inverted}>
           Sign up
         </Button>
       </form>
