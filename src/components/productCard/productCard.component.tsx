@@ -12,6 +12,7 @@ import {
   Price,
   Footer,
 } from "./productCard.styles";
+
 import { CategoryItem } from "../../store/categories/categories.types";
 
 type ProductCardProps = {

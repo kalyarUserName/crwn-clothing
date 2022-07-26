@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import ProductCard from "../../components/productCard/productCard.component";
+import Spinner from "../../components/spinner/spinner.component";
 
-import { CategoryContainer, Title } from "./category.styles";
 import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
 } from "../../store/categories/categories.selector";
-import Spinner from "../../components/spinner/spinner.component";
+
+import { CategoryContainer, Title } from "./category.styles";
 
 type CategoryRouteParams = {
   category: string;

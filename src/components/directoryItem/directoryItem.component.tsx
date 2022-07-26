@@ -5,6 +5,7 @@ import {
   DirectoryItemContainer,
   Body,
 } from "./directoryItem.styles";
+
 import { DirectoryCategories } from "../directory/directory.component";
 
 type DirectoryItemProps = {

@@ -36,12 +36,6 @@ const SignUpForm = () => {
       return;
     }
     try {
-      // const { user } = await createAuthUserWithEmailAndPassword(
-      //   email,
-      //   password
-      // );
-      // await createUserDocumentFromAuth(user, { displayName });
-
       dispatch(signUpStart(email, password, displayName));
 
       resetFormField();
@@ -51,7 +45,6 @@ const SignUpForm = () => {
       else {
         console.log("user created encountered an error", error);
       }
-      // console.log("user sign up failed", error);
     }
   };
 

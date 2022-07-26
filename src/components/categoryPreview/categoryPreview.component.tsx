@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import ProductCard from "../productCard/productCard.component";
+
 import { CategoryItem } from "../../store/categories/categories.types";
 
 import {

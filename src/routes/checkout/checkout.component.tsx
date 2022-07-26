@@ -1,4 +1,7 @@
+import { useSelector } from "react-redux";
+
 import CheckoutItem from "../../components/checkoutItem/checkoutItem.component";
+import PaymentForm from "../../components/paymentForm/paymentForm.component";
 
 import {
   HeaderBlock,
@@ -6,12 +9,10 @@ import {
   CheckoutContainer,
   Total,
 } from "./checkout.styles";
-import { useSelector } from "react-redux";
 import {
   selectCartItems,
   selectCartTotal,
 } from "../../store/cart/cart.selector";
-import PaymentForm from "../../components/paymentForm/paymentForm.component";
 
 const headerBlocks = ["Product", "Description", "Quantity", "Price", "Remove"];
 
