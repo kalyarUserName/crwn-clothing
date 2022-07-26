@@ -39,6 +39,26 @@ export const ProductCardContainer = styled.div`
       display: flex;
     }
   }
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+
+    ${BaseButton},${GoogleSignInButton}${InvertedButton} {
+      width: 30px;
+      height: 70px;
+      font-size: 14px;
+      paddimg-bottom: 20px;
+    }
+
+    &:hover {
+      img {
+        opacity: unset;
+      }
+
+      ${BaseButton},${GoogleSignInButton}${InvertedButton} {
+        opacity: unset;
+      }
+    }
+  }
 `;
 
 export const Footer = styled.div`
@@ -52,8 +72,12 @@ export const Footer = styled.div`
 export const Name = styled.span`
   width: 90%;
   margin-bottom: 15px;
+  @media screen and (max-width: 800px) {
+    width: 70%;
+  }
 `;
 
 export const Price = styled.span`
-  width: 10%;
+  width: 20%;
+  text-align: right;
 `;
