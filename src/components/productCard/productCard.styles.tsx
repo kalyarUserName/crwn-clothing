@@ -43,10 +43,11 @@ export const ProductCardContainer = styled.div`
     width: 40vw;
 
     ${BaseButton},${GoogleSignInButton}${InvertedButton} {
-      width: 30px;
-      height: 70px;
-      font-size: 14px;
-      paddimg-bottom: 20px;
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      font-size: 10pt;
+      padding: 0 10px;
     }
 
     &:hover {
