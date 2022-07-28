@@ -1,8 +1,5 @@
 require("dotenv").config();
-const stripe = require("stripe")(
-  // "sk_test_51LNfofAwlDqxZMpUZ7Qeyns8hnG4kgvuDviIdf18XRDqxZwIRpQubMheMTMBTulyOidccRX7C14EU1LOmsg7OB7w00Gk1pEn0U"
-  process.env.REACT_APP_STRIPE_SECRET_KEY
-);
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
   try {
