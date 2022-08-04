@@ -5,7 +5,6 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^1.9.0",
     "@stripe/stripe-js": "^1.32.0",
-    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^28.1.6",
@@ -50,7 +49,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build && cp public/manifest.json build/ && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)'",
     "gh-pages": "gh-pages -d build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --end=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -72,10 +71,17 @@
     ]
   },
   "devDependencies": {
+    "@cfaester/enzyme-adapter-react-18": "^0.5.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@types/enzyme": "^3.10.12",
     "babel-plugin-macros": "^3.1.0",
+    "enzyme": "^3.11.0",
+    "gh-pages": "^0.11.0",
+    "node-fetch": "^3.2.9",
     "prettier": "2.7.1",
+    "redux-mock-store": "^1.5.4",
     "sw-precache": "^4.0.0",
-    "gh-pages": "^0.11.0"
+    "ts-jest": "^28.0.7"
   },
   "homepage": "./"
 }
